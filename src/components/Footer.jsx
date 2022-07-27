@@ -8,6 +8,10 @@ const StyledFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 0.5em;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 `;
 
 const StyledName = styled.p`

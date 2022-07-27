@@ -3,9 +3,14 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import Logic from "./components/Logic";
 import Footer from "./components/Footer";
-import { Routes, Route } from "react-router-dom";
+import Comments from "./components/Comments";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    document.title = "Hacker News";
+  }, []);
   return (
     <div className="App">
       <Header />
@@ -13,9 +18,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/stories/:type" element={<Logic />} />
-        {/* <Route path="/stories/top" element={<Logic type="top" />} />
-        <Route path="/stories/job" element={<Logic type="job" />} />
-        <Route path="/stories/best" element={<Logic type="best" />} /> */}
+        <Route path="/post" element={<Comments />} />
+        <Route path="*" element={<Navigate to="/stories/top" replace />} />
       </Routes>
       <Footer />
     </div>

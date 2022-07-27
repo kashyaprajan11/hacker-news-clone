@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getStoriesId } from "../utility/api";
 import usePrevious from "../hooks/usePrevious";
-import Card from "./Card";
 import Loading from "./Loading";
 import StoryList from "./StoryList";
 
@@ -30,8 +29,6 @@ function Logic() {
     });
   }, [type]);
 
-  console.log("current " + type + " previous " + prevType);
-
   useEffect(() => {
     const getStory = async () => {
       const ids = storyIds.slice(index, index + 6);
@@ -50,8 +47,6 @@ function Logic() {
 
     getStory();
   }, [index, storyIds]);
-
-  console.log(stories);
 
   if (stories.length === 0) return <Loading />;
 
